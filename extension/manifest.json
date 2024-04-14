@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Transmission uploader",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "action": {
+    "default_icon": "./assets/img/logo.png"
+  },
+  "background": {
+    "service_worker": "assets/scripts/background.js"
+  },
+  "permissions": ["tabs", "storage"]
+}
