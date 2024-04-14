@@ -16,7 +16,7 @@ export function addTorrent(torrentFilePath, downloadDir, res) {
       return res.status(500).send("Erreur lors de l'ajout du torrent.");
     }
 
-    console.log("Torrent ajouté avec succès:", result);
+    console.log("Torrent ajouté avec succès: ", result.name);
     res.send("Torrent ajouté avec succès.");
   });
 }
