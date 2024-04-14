@@ -1,4 +1,6 @@
 import Transmission from "transmission";
+import dotenv from "dotenv";
+dotenv.config();
 
 export const transmission = new Transmission({
   host: process.env.TRANSMISSION_IP || "localhost",
