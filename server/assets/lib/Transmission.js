@@ -10,13 +10,16 @@ export const transmission = new Transmission({
 });
 
 export function addTorrent(torrentFilePath, downloadDir, res) {
-  transmission.addFile(torrentFilePath, { downloadDir }, (err, result) => {
+  const option = {
+    "download-dir": downloadDir,
+  };
+  transmission.addFile(torrentFilePath, option, (err, result) => {
     if (err) {
       console.error("Erreur lors de l'ajout du torrent:", err);
       return res.status(500).send("Erreur lors de l'ajout du torrent.");
     }
 
     console.log("Torrent ajouté avec succès: ", result.name);
-    res.send("Torrent ajouté avec succès.");
+    res.status(200).send("Torrent ajouté avec succès.");
   });
 }
