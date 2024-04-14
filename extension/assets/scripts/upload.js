@@ -111,8 +111,6 @@ function uploadFile(file, destination) {
 
   addLog(`Uploading ${file.name} to ${destination}...`, "blue");
 
-  console.log(urlServer);
-
   fetch(urlServer, {
     method: "POST",
     body: formData,
