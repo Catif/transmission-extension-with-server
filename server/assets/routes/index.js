@@ -6,13 +6,19 @@ const router = Router();
 
 router.post("/upload", upload.single("torrent"), (req, res) => {
   if (!req.file) {
-    return res.status(400).send("Aucun fichier n'a été uploadé.");
+    return res.status(400).send({
+      message: "Aucun fichier n'a été envoyé.",
+    });
   }
   if (!req.body.destination) {
-    return res.status(400).send("Aucune destination n'a été spécifiée.");
+    return res.status(400).send({
+      message: "Destination manquante.",
+    });
   }
   if (!["movie", "serie"].includes(req.body.destination)) {
-    return res.status(400).send("Destination invalide.");
+    return res.status(400).send({
+      message: "Destination invalide.",
+    });
   }
 
   const torrentFilePath = req.file.path;
