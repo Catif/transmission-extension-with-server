@@ -15,15 +15,15 @@ export function addTorrent(torrentFilePath, downloadDir, res) {
   };
   transmission.addFile(torrentFilePath, option, (err, result) => {
     if (err) {
-      console.error("Erreur lors de l'ajout du torrent:", err);
+      console.error("Error adding torrent: ", err);
       return res.status(500).send({
-        message: "Erreur lors de l'ajout du torrent.",
+        message: "Error adding torrent.",
       });
     }
 
-    console.log("Torrent ajouté avec succès: ", result.name);
+    console.log("Torrent adding successfully : ", result.name);
     res.status(200).send({
-      message: "Torrent ajouté avec succès.",
+      message: "Torrent added successfully.",
     });
   });
 }
